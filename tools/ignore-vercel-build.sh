@@ -1,17 +1,26 @@
 
 # Name of the app to check. Change this to your application name!
 APP=nextapp
+echo $APP
 
 # Determine version of Nx installed
 NX_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@nrwl/workspace'])")
 TS_VERSION=$(node -e "console.log(require('./package.json').devDependencies['typescript'])")
 
+echo $NX_VERSION
+echo $TS_VERSION
+
 # Install @nrwl/workspace in order to run the affected command
 npm install -D @nrwl/workspace@$NX_VERSION --prefer-offline
 npm install -D typescript@$TS_VERSION --prefer-offline
 
+echo "LOG: done installing dependencies"
+echo "LOG: running nx affected"
+
 # Run the affected command, comparing latest commit to the one before that
 npx nx affected:apps --plain --base HEAD~1 --head HEAD | grep $APP -q
+
+echo "LOG: completed nx affected"
 
 # Store result of the previous command (grep)
 IS_AFFECTED=$?
