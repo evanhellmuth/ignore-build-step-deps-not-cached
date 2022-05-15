@@ -1,6 +1,6 @@
 
 # Name of the app to check. Change this to your application name!
-APP=tuskdesk
+APP=nextapp
 
 # Determine version of Nx installed
 NX_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@nrwl/workspace'])")
