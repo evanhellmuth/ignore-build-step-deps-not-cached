@@ -10,11 +10,11 @@ echo "LOG: NX_VERSION=$NX_VERSION TS_VERSION=$TS_VERSION"
 
 # Install @nrwl/workspace in order to run the affected command
 echo "LOG: installing @nrwl/workspace"
-npm install -D @nrwl/workspace@$NX_VERSION --prefer-offline
+pnpm install -D @nrwl/workspace@$NX_VERSION --prefer-offline
 echo "LOG: done installing @nrwl/workspace"
 
 echo "LOG: installing typescript"
-npm install -D typescript@$TS_VERSION --prefer-offline
+pnpm install -D typescript@$TS_VERSION --prefer-offline
 echo "LOG: done installing typescript"
 
 # Run the affected command, comparing latest commit to the one before that
